@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Github, Twitter } from "lucide-react"
 
 const footerLinks = {
@@ -43,11 +44,13 @@ export function RefferqFooter() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 6h12M3 9h12M3 12h7" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Refferq Logo"
+                width={36}
+                height={36}
+                className="rounded-lg"
+              />
               <span className="text-xl font-bold text-white tracking-tight">Refferq</span>
             </Link>
             <p className="mt-4 text-sm text-gray-500 max-w-sm leading-relaxed">

@@ -158,7 +158,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/icon-512.png`,
+  logo: `${SITE_URL}/logo.png`,
   description: DEFAULT_DESCRIPTION,
   foundingDate: "2025",
   sameAs: [
@@ -184,7 +184,7 @@ const websiteJsonLd = {
     name: SITE_NAME,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/icon-512.png`,
+      url: `${SITE_URL}/logo.png`,
     },
   },
   potentialAction: {

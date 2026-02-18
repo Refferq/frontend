@@ -1,281 +1,236 @@
-# Refferq Frontend Website
+# Refferq Frontend
 
-> Clean, modern marketing website for Refferq - Open Source Affiliate Platform
+> Modern marketing website for [Refferq](https://refferq.com) — the open-source affiliate marketing platform.
 
-This directory contains the static frontend website for Refferq, built with HTML, CSS, and vanilla JavaScript. Designed with a Tolt.io-inspired aesthetic.
+Built with **Next.js 15** (App Router), **React 19**, **TypeScript**, **Tailwind CSS 4**, and **Framer Motion**. Optimized for SEO, AEO (Answer Engine Optimization), and GEO (Generative Engine Optimization).
 
-## 🌐 Live Demo
+## Live
 
-- **Website**: [https://refferq.com](https://refferq.com)
-- **Application**: [https://app.refferq.com](https://app.refferq.com)
-- **Repository**: [https://github.com/Refferq/Refferq](https://github.com/Refferq/Refferq)
+| | URL |
+|---|---|
+| **Website** | [refferq.com](https://refferq.com) |
+| **Application** | [app.refferq.com](https://app.refferq.com) |
+| **Repository** | [github.com/Refferq/frontend](https://github.com/Refferq/frontend) |
 
-## 📁 Structure
+## Project Structure
 
 ```
-frontend/
-├── index.html          # Landing page
-├── features.html       # Features showcase
-├── pricing.html        # Pricing & comparison
-├── docs.html          # Documentation
-├── styles.css         # Main stylesheet (Tolt.io inspired)
-├── script.js          # Interactive functionality
-├── sitemap.xml        # SEO sitemap
-├── robots.txt         # Crawler instructions
-├── manifest.json      # PWA manifest
-├── humans.txt         # Credits & tech stack
-├── security.txt       # Security disclosure
-├── .htaccess          # Apache configuration
-└── README.md          # This file
+├── app/
+│   ├── layout.tsx              # Root layout, global metadata, JSON-LD schemas
+│   ├── page.tsx                # Homepage (/, landing page)
+│   ├── features/page.tsx       # Features page (/features)
+│   ├── pricing/page.tsx        # Pricing page (/pricing)
+│   ├── docs/page.tsx           # Documentation page (/docs)
+│   ├── globals.css             # Global styles
+│   ├── sitemap.ts              # Dynamic sitemap generation
+│   ├── robots.ts               # Dynamic robots.txt generation
+│   ├── opengraph-image.tsx     # Dynamic OG image (Edge runtime)
+│   └── twitter-image.tsx       # Dynamic Twitter card image (Edge runtime)
+├── components/
+│   ├── refferq-nav.tsx         # Navigation bar
+│   ├── refferq-hero.tsx        # Hero section
+│   ├── refferq-features.tsx    # Features grid
+│   ├── refferq-how-it-works.tsx# How it works steps
+│   ├── refferq-comparison.tsx  # Competitor comparison table
+│   ├── refferq-pricing.tsx     # Pricing cards
+│   ├── refferq-pricing-faq.tsx # Pricing FAQ accordion
+│   ├── refferq-testimonials.tsx# Testimonials
+│   ├── refferq-cta.tsx         # Call-to-action section
+│   ├── refferq-footer.tsx      # Footer
+│   ├── refferq-features-page.tsx # Features page content
+│   ├── refferq-docs-content.tsx  # Docs page content
+│   ├── Aurora.tsx              # Animated aurora background
+│   ├── RotatingText.tsx        # Rotating text animation
+│   ├── page-transition.tsx     # Page transition wrapper
+│   ├── navigation-transition.tsx # Navigation transition
+│   ├── theme-provider.tsx      # Dark/light theme provider
+│   └── ui/                     # shadcn/ui component library
+├── hooks/
+│   ├── use-mobile.ts           # Mobile detection hook
+│   └── use-toast.ts            # Toast notification hook
+├── lib/
+│   └── utils.ts                # Utility functions (cn, etc.)
+├── public/
+│   ├── sitemap.xml             # Static sitemap with image extensions
+│   ├── robots.txt              # Static robots.txt with AI bot rules
+│   ├── manifest.json           # PWA manifest
+│   ├── llms.txt                # GEO: LLM context (llms.txt spec)
+│   ├── llms-full.txt           # GEO: Full AI context document
+│   ├── humans.txt              # Team & tech credits
+│   ├── og-image.svg            # Fallback OG image
+│   ├── icon.svg                # Favicon
+│   └── .well-known/
+│       ├── security.txt        # RFC 9116 security contact
+│       └── ai-plugin.json      # AI plugin discovery manifest
+├── next.config.mjs             # Next.js config (headers, redirects, caching)
+├── tailwind.config.ts          # Tailwind CSS configuration
+├── tsconfig.json               # TypeScript configuration
+└── package.json
 ```
 
-## 🎨 Design Features
+## Getting Started
 
-- **Clean & Minimal**: Tolt.io-inspired design language
-- **Responsive**: Mobile-first, works on all devices
-- **Fast Loading**: Optimized CSS/JS, no heavy frameworks
-- **Smooth Animations**: Subtle fade-ins and transitions
-- **SEO Optimized**: Comprehensive meta tags and structured data
-- **Accessible**: WCAG 2.1 compliant
+### Prerequisites
 
-## 🚀 Deployment
+- **Node.js** 18.17+
+- **npm** 9+ (or pnpm / yarn)
 
-### Option 1: Static Hosting (Netlify, Vercel, GitHub Pages)
+### Install & Run
 
-The frontend is pure HTML/CSS/JS, so it can be deployed anywhere:
-
-**Netlify:**
 ```bash
-# Drag and drop the 'frontend' folder to Netlify
-# Or use Netlify CLI:
+# Clone the repository
+git clone https://github.com/Refferq/frontend.git
 cd frontend
-netlify deploy --prod
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-**Vercel:**
+Open [http://localhost:3000](http://localhost:3000).
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Create optimized production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+
+## Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Framework** | Next.js 15 (App Router) |
+| **Language** | TypeScript 5.7 |
+| **UI** | React 19 |
+| **Styling** | Tailwind CSS 4 |
+| **Animations** | Framer Motion 12 |
+| **Components** | shadcn/ui + Radix UI |
+| **Icons** | Lucide React |
+| **Analytics** | Vercel Analytics + Speed Insights |
+| **Font** | Inter (Google Fonts, `display: swap`) |
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page — hero, features, how it works, comparison, pricing, testimonials, CTA |
+| `/features` | Detailed feature breakdown — 6 categories, 28+ individual features |
+| `/pricing` | Pricing plans — Self-Hosted (free) vs Managed Cloud ($29/mo), FAQ, competitor comparison |
+| `/docs` | Documentation — quick start, API reference, deployment guides (Docker, Vercel) |
+
+## SEO & Optimization
+
+### Search Engine Optimization (SEO)
+
+- **Metadata**: Per-page title, description, keywords, canonical URLs, Open Graph, Twitter Cards
+- **Structured Data (JSON-LD)**: Organization, WebSite (with SearchAction), SoftwareApplication, BreadcrumbList, FAQPage, Product, TechArticle, ItemList
+- **Sitemaps**: Dynamic (`sitemap.ts`) + static (`sitemap.xml` with image extensions)
+- **Robots**: Dynamic (`robots.ts`) + static (`robots.txt`) with granular per-agent rules
+- **OG Images**: Dynamically generated via Edge runtime (`opengraph-image.tsx`, `twitter-image.tsx`)
+- **Security Headers**: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy via `next.config.mjs`
+- **Caching**: Static assets (1 year), SEO files (1 day)
+- **Redirects**: Common URL typos handled (`/home` → `/`, `/feature` → `/features`, etc.)
+
+### Answer Engine Optimization (AEO)
+
+- FAQ structured data on pricing page (6 Q&A pairs)
+- Clear, scannable content with semantic HTML
+- Descriptive headings that match common search queries
+
+### Generative Engine Optimization (GEO)
+
+- **llms.txt**: Concise structured context following the [llms.txt specification](https://llmstxt.org/)
+- **llms-full.txt**: Full-context AI document (~200 lines) with complete feature details
+- **ai-plugin.json**: OpenAI plugin manifest for AI discovery
+- **robots.txt**: Explicit allow rules for GPTBot, PerplexityBot, anthropic-ai, Cohere, YouBot
+
+## Deployment
+
+### Vercel (Recommended)
+
 ```bash
-# Deploy using Vercel CLI:
-cd frontend
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
 vercel --prod
 ```
 
-**GitHub Pages:**
-```bash
-# Push to gh-pages branch:
-git subtree push --prefix frontend origin gh-pages
-```
+Or connect the [GitHub repository](https://github.com/Refferq/frontend) directly in the Vercel dashboard for automatic deployments on push.
 
-### Option 2: Apache/Nginx Server
-
-Copy files to your web server root:
+### Docker
 
 ```bash
-# Apache
-cp -r frontend/* /var/www/html/
+# Build
+docker build -t refferq-frontend .
 
-# Nginx
-cp -r frontend/* /usr/share/nginx/html/
+# Run
+docker run -p 3000:3000 refferq-frontend
 ```
 
-### Option 3: With Main Application
+### Self-Hosted (Node.js)
 
-The frontend can be served alongside the Next.js application by placing files in the `public` directory.
-
-## 🔧 Configuration
-
-### Update URLs
-
-Current domains configured:
-- **Marketing site**: `https://refferq.com`
-- **Application**: `https://app.refferq.com`
-
-If deploying to different domains, update:
-- `sitemap.xml` - All `<loc>` tags
-- `robots.txt` - Sitemap URL
-- `manifest.json` - `start_url` and `scope`
-- `security.txt` - Canonical URL
-- All HTML files - Meta tags and canonical links
-
-### Customize Branding
-
-1. **Colors** - Edit CSS variables in `styles.css`:
-```css
-:root {
-    --primary: #10b981;      /* Main brand color */
-    --primary-dark: #059669;  /* Hover state */
-    /* ... other colors ... */
-}
+```bash
+npm run build
+npm run start
 ```
 
-2. **Logo** - Replace SVG in navigation across all HTML files
+The server starts on port 3000 by default. Use a reverse proxy (Nginx, Caddy) for production.
 
-3. **Content** - Update text in HTML files
+## Configuration
 
-## 📊 SEO Optimization
+### Environment Variables
 
-### Included SEO Features
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_APP_URL` | Base URL for the marketing site (e.g., `https://refferq.com`) | No |
 
-✅ **Meta Tags**
-- Title, description, keywords
-- Open Graph (Facebook)
-- Twitter Cards
-- Canonical URLs
+### Customizing URLs
 
-✅ **Structured Data**
-- Sitemap.xml
-- Robots.txt
-- Humans.txt
-- Security.txt
-- Manifest.json
+Update these files if deploying to a different domain:
 
-✅ **Performance**
-- Gzip compression (.htaccess)
-- Browser caching
-- Optimized assets
-- Lazy loading images
+- `app/layout.tsx` — `metadataBase`, canonical URLs
+- `app/sitemap.ts` — base URL
+- `public/sitemap.xml` — all `<loc>` tags
+- `public/robots.txt` — sitemap URL
+- `public/manifest.json` — `start_url`, `scope`
+- `public/.well-known/security.txt` — canonical URL
 
-✅ **Accessibility**
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- Screen reader friendly
+### Customizing Branding
 
-### SEO Checklist
+- **Colors**: Edit Tailwind config and `globals.css` (emerald/teal theme)
+- **Logo**: Replace `public/icon.svg` and update nav component
+- **Content**: Edit component files in `components/`
 
-Before deploying, verify:
-
-- [ ] Update all URLs to your domain
-- [ ] Add Google Search Console verification
-- [ ] Add Google Analytics (optional)
-- [ ] Generate favicon.ico and app icons
-- [ ] Test mobile responsiveness
-- [ ] Check page load speed (aim for <3s)
-- [ ] Validate HTML (W3C Validator)
-- [ ] Test all internal links
-- [ ] Submit sitemap to search engines
-- [ ] Set up SSL certificate (HTTPS)
-
-## 🎯 Pages Overview
-
-### 1. Landing Page (`index.html`)
-- Hero section with value proposition
-- Feature highlights (6 cards)
-- Social proof statistics
-- Pricing overview
-- Comparison table
-- Call-to-action sections
-
-### 2. Features Page (`features.html`)
-- Detailed feature categories:
-  - Affiliate Management
-  - Advanced Tracking
-  - Flexible Commissions
-  - Communication Tools
-  - Developer Features
-- Visual feature cards with icons
-
-### 3. Pricing Page (`pricing.html`)
-- Self-hosted (Free) vs Managed ($29/mo)
-- Feature comparison table
-- Refferq vs Competitors
-- FAQ accordion
-- Clear CTAs
-
-### 4. Documentation (`docs.html`)
-- Sidebar navigation
-- Quick start guide
-- Installation instructions
-- API reference
-- Deployment guides
-- Code examples
-
-## 🛠️ Technical Stack
-
-- **HTML5** - Semantic markup
-- **CSS3** - Custom properties, Grid, Flexbox
-- **JavaScript (ES6+)** - Vanilla JS, no dependencies
-- **Design System** - Tolt.io-inspired
-- **Typography** - System fonts for performance
-- **Icons** - Custom SVG icons
-
-## 📱 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🔒 Security
-
-Security features implemented:
-
-- **Content Security Policy** headers
-- **X-Frame-Options** (prevent clickjacking)
-- **X-Content-Type-Options** (MIME sniffing)
-- **Referrer-Policy** (privacy)
-- **Security.txt** for responsible disclosure
-
-## 🤝 Contributing
-
-To contribute to the frontend:
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test across browsers
-5. Submit a pull request
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Make changes and test locally
+4. Run lint: `npm run lint`
+5. Commit: `git commit -m "feat: description"`
+6. Push and open a pull request
 
-### Development Workflow
+## License
 
-```bash
-# Clone repository
-git clone https://github.com/Refferq/Refferq.git
-cd Refferq/frontend
+MIT — See [LICENSE](../LICENSE) for details.
 
-# Make changes
-# Test in browser (live server recommended)
+## Support
 
-# Validate HTML
-# https://validator.w3.org/
-
-# Check accessibility
-# https://wave.webaim.org/
-```
-
-## 📝 License
-
-MIT License - See [LICENSE](../LICENSE) for details.
-
-## 🆘 Support
-
-- **Documentation**: [docs.html](./docs.html)
-- **GitHub Issues**: [github.com/Refferq/Refferq/issues](https://github.com/Refferq/Refferq/issues)
-- **Community**: [GitHub Discussions](https://github.com/Refferq/Refferq/discussions)
-- **Email**: hello@refferq.com
-
-## 📈 Analytics (Optional)
-
-To add analytics, insert before `</head>`:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-```
-
-## 🎉 Credits
-
-- **Built By**: Refferq Team
-- **Community Contributors**: See [CONTRIBUTORS.md](../CONTRIBUTORS.md)
+| Channel | Link |
+|---------|------|
+| **Documentation** | [refferq.com/docs](https://refferq.com/docs) |
+| **Issues** | [GitHub Issues](https://github.com/Refferq/frontend/issues) |
+| **Discussions** | [GitHub Discussions](https://github.com/Refferq/Refferq/discussions) |
+| **Email** | hello@refferq.com |
 
 ---
 
 **Made with ❤️ by the Refferq community**
 
-[⭐ Star us on GitHub](https://github.com/Refferq/Refferq) | [🐛 Report Bug](https://github.com/Refferq/Refferq/issues) | [💡 Request Feature](https://github.com/Refferq/Refferq/discussions)
+[Star on GitHub](https://github.com/Refferq/Refferq) · [Report Bug](https://github.com/Refferq/frontend/issues) · [Request Feature](https://github.com/Refferq/Refferq/discussions)

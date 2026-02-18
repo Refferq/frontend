@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
@@ -44,11 +45,14 @@ export function RefferqNav() {
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center transition-transform group-hover:scale-105">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 6h12M3 9h12M3 12h7" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Refferq Logo"
+                width={36}
+                height={36}
+                className="rounded-lg transition-transform group-hover:scale-105"
+                priority
+              />
               <span className="text-xl font-bold text-white tracking-tight">Refferq</span>
             </Link>
 
